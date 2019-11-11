@@ -1,3 +1,4 @@
+//some of this was psuedocoded in class on 11/08/2019 when Shelby went over this stuff at the end of the day. any similarities to the work of other people present is likely a result of that.
 require("dotenv").config();
 var keys = require("./keys.js");
 // var inquirer = require("inquirer");
@@ -61,14 +62,17 @@ console.log(userCommand);
 // * This will show the following information about the song in your terminal/bash window
 
 function spotifyFunction(userRequest) {
-    // * Artist(s)
+    var request = userRequest;
+    if (request === "") request = "the sign ace base";
+    spotify.search({}, function () {
+        // * Artist(s)
 
-    // * The song's name
+        // * The song's name
 
-    // * A preview link of the song from Spotify
+        // * A preview link of the song from Spotify
 
-    // * The album that the song is from
-
+        // * The album that the song is from
+    });
 
 }
 
@@ -91,21 +95,57 @@ function spotifyFunction(userRequest) {
 // * This will output the following information to your terminal/bash window:
 function movieFunction(userRequest) {
     var movieName = userRequest;
-    if (movieName === "") {movieName = "mr. Nobody"};
+    if (movieName === "") { movieName = "mr. Nobody" };
     //this one is very similar to the omdb ajax activity
     var queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-    
+    //except i dont have to use ajax and i dont have to manipulate the DOM, which is most of twhat that workingmovieapp does... gonna have to use "/r/n" probably. you know what, i was wrong.
+    //the omdb axios class activity
+    // Then run a request with axios to the OMDB API with the movie specified
+    axios.get(queryURL).then(
+        function (response) {
+            //   * Title of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Year the movie came out.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * IMDB Rating of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Rotten Tomatoes Rating of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Country where the movie was produced.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Language of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Plot of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Actors in the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+        })
+        .catch(function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log("---------------Data---------------");
+                console.log(error.response.data);
+                console.log("---------------Status---------------");
+                console.log(error.response.status);
+                console.log("---------------Status---------------");
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+            }
+            console.log(error.config);
+        });
+
+
 
 
     // ```
-    //   * Title of the movie.
-    //   * Year the movie came out.
-    //   * IMDB Rating of the movie.
-    //   * Rotten Tomatoes Rating of the movie.
-    //   * Country where the movie was produced.
-    //   * Language of the movie.
-    //   * Plot of the movie.
-    //   * Actors in the movie.
+
     // ```
 }
 // * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
@@ -123,6 +163,50 @@ function movieFunction(userRequest) {
 // display name if venue, location, and Date, use moment to Format 
 // * This will search the Bands in Town Artist Events API (`"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`) for an artist and render the following information about each event to the terminal:
 function concertFunction(userRequest) {
+    var band = userRequest;
+    if (band === "") band = "Feist";
+    var queryURL = "https://rest.bandsintown.com/artists/" + band + "/events?app_id=codingbootcamp";
+    //from the movie one
+    axios.get(queryURL).then(
+        function (response) {
+            //   * Title of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Year the movie came out.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * IMDB Rating of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Rotten Tomatoes Rating of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Country where the movie was produced.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Language of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Plot of the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+            //   * Actors in the movie.
+            console.log("The movie's rating is: " + response.data.imdbRating);
+        })
+        .catch(function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log("---------------Data---------------");
+                console.log(error.response.data);
+                console.log("---------------Status---------------");
+                console.log(error.response.status);
+                console.log("---------------Status---------------");
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+            }
+            console.log(error.config);
+    });
+
     // * Name of the venue
 
     // * Venue location
