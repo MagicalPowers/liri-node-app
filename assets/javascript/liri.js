@@ -18,7 +18,7 @@ var userRequest = "";// everything index of 3 and later
 //similar to the geocode exercise
 // var arguments = process.argv;
 // var address = "";
-
+//creasting a multiword userrequest
 for (var i = 2; i < process.argv.length; i++) {
     userRequest = userRequest + userRequest.argv[i] + " ";
     // fs.writeFile("location.txt", i, function(err) {
@@ -72,6 +72,8 @@ function spotifyFunction(userRequest) {
         // * A preview link of the song from Spotify
 
         // * The album that the song is from
+
+        //and then log it to the text file
     });
 
 }
@@ -130,6 +132,8 @@ function movieFunction(userRequest) {
                 console.log(error.response.status);
                 console.log("---------------Status---------------");
                 console.log(error.response.headers);
+
+                //gonna wanna log all that to the text file as well
             } else if (error.request) {
                 // The request was made but no response was received
                 // `error.request` is an object that comes back with details pertaining to the error that occurred.
@@ -140,12 +144,7 @@ function movieFunction(userRequest) {
             }
             console.log(error.config);
         });
-
-
-
-
     // ```
-
     // ```
 }
 // * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
@@ -169,22 +168,14 @@ function concertFunction(userRequest) {
     //from the movie one
     axios.get(queryURL).then(
         function (response) {
-            //   * Title of the movie.
+            // * Name of the venue
             console.log("The movie's rating is: " + response.data.imdbRating);
-            //   * Year the movie came out.
+            // * Venue location
             console.log("The movie's rating is: " + response.data.imdbRating);
-            //   * IMDB Rating of the movie.
+            // * Date of the Event (use moment to format this as "MM/DD/YYYY")
             console.log("The movie's rating is: " + response.data.imdbRating);
-            //   * Rotten Tomatoes Rating of the movie.
-            console.log("The movie's rating is: " + response.data.imdbRating);
-            //   * Country where the movie was produced.
-            console.log("The movie's rating is: " + response.data.imdbRating);
-            //   * Language of the movie.
-            console.log("The movie's rating is: " + response.data.imdbRating);
-            //   * Plot of the movie.
-            console.log("The movie's rating is: " + response.data.imdbRating);
-            //   * Actors in the movie.
-            console.log("The movie's rating is: " + response.data.imdbRating);
+            // * **Important**: There is no need to sign up for a Bands in Town `api_id` key. Use the `codingbootcamp` as your `app_id`. For example, the URL used to search for "Celine Dion" would look like the following:
+            //  * `https://rest.bandsintown.com/artists/celine+dion/events?app_id=codingbootcamp`
         })
         .catch(function (error) {
             if (error.response) {
@@ -205,25 +196,24 @@ function concertFunction(userRequest) {
                 console.log("Error", error.message);
             }
             console.log(error.config);
-    });
+        });
 
-    // * Name of the venue
-
-    // * Venue location
-
-    // * Date of the Event (use moment to format this as "MM/DD/YYYY")
-
-    // * **Important**: There is no need to sign up for a Bands in Town `api_id` key. Use the `codingbootcamp` as your `app_id`. For example, the URL used to search for "Celine Dion" would look like the following:
-
-    //  * `https://rest.bandsintown.com/artists/celine+dion/events?app_id=codingbootcamp`
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------
 //do-what-it-says
 //this one does not need a userrequest
 function doTheRightThing() {
+    //okay, the temporary variables need to bee out here, not inside the fs function
+    var command2 = "";
+    var request2 = "";
+
     // * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
-    fs.readFile("random.txt", "utf8", function () {
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error);
+        } else 
+        
 
     });
 }
