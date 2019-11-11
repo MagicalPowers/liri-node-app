@@ -33,23 +33,24 @@ for (var i = 2; i < process.argv.length; i++) {
 //similar to the calculator activity
 //needs to be a function so it can have arguments
 function LARRY(userCommand, userRequest) {
-    switch (operand) {
-        case "add":
-            outputNum = parseFloat(num1) + parseFloat(num2);
+    switch (userCommand) {
+        case "concert-this":
+            concertFunction(userRequest);
             break;
-        case "subtract":
-            outputNum = parseFloat(num1) - parseFloat(num2);
+        case "spotify-this-song":
+            spotifyFunction(userRequest);
             break;
-        case "multiply":
-            outputNum = parseFloat(num1) * parseFloat(num2);
+        case "movie-this":
+            movieFunction(userRequest);
             break;
-        case "divide":
-            outputNum = parseFloat(num1) / parseFloat(num2);
+        case "do-what-it-says":
+            doTheRightThing();
             break;
         default:
-            outputNum = "Not a recognized command";
+            console.log("Not a recognized command");
     };
 }
+//Language Assesment Recognition Reasoning Yinterface
 LARRY(userCommand, userRequest);
 //yeah.
 
@@ -171,7 +172,7 @@ function concertFunction(userRequest) {
             // * Name of the venue
             console.log("The movie's rating is: " + response.data.imdbRating);
             // * Venue location
-            console.log("The movie's rating is: " + response.data.imdbRating);
+            console.log("The movie's rating is: " + moment(response.data.imdbRating, "MM/DD/YYY"));
             // * Date of the Event (use moment to format this as "MM/DD/YYYY")
             console.log("The movie's rating is: " + response.data.imdbRating);
             // * **Important**: There is no need to sign up for a Bands in Town `api_id` key. Use the `codingbootcamp` as your `app_id`. For example, the URL used to search for "Celine Dion" would look like the following:
@@ -212,9 +213,16 @@ function doTheRightThing() {
     fs.readFile("random.txt", "utf8", function (error, data) {
         if (error) {
             return console.log(error);
-        } else 
-        
+        }
+        // Break the string down by comma separation and store the contents into the output array.
+        var output = data.split(",");
 
+        // Loop Through the newly created output array
+        for (var i = 0; i < output.length; i++) {
+
+            // Print each element (item) of the array/
+            console.log(output[i]);
+        }
     });
 }
 // * It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
