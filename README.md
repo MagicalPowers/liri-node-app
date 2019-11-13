@@ -12,10 +12,14 @@ Relevant results will then be console logged to display to the user.
 
 ### Proof Positive
 include screenshots, a GIF, and/or a video showing us that you have the app working with no bugs
-![] (./assets/images/gif1.gif)
-![] (./assets/images/gif2.gif)
-![] (./assets/images/gif3.gif)
-![] (./assets/images/gif4.gif)
+
+![Initiate the app] (assets/images/gif1.gif)
+
+![try the commands] (./assets/images/gif2.gif)
+
+![part three] (./assets/images/gif3.gif)
+
+![The final Conclusion] (./assets/images/gif4.gif)
 
 
 ### Link to Github Repository
@@ -26,4 +30,4 @@ https://github.com/MagicalPowers/liri-node-app
 This node.js app uses a package.json to facilitate installing third-party software, dotENV to keep our keys secure, axios for API interaction, moment.js for date formatting, a proprietary spotify api package, and of course javascript.
 
 ### My Role
-This entire project is the result of my actions. 
+This is a solo assignment. 
